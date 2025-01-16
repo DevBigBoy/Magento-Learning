@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <!--<resource id="Magento_Backend::content">-->
+                <resource id="Learning_JobManager::job_head" title="Jobs" sortOrder="100" >
+                    <resource id="Learning_JobManager::department" title="Departments" sortOrder="10">
+                        <resource id="Learning_JobManager::department_save" title="Save Department" sortOrder="10" />
+                        <resource id="Learning_JobManager::department_delete" title="Delete Department" sortOrder="20" />
+                    </resource>
+                    <resource id="Learning_JobManager::job" title="Jobs" sortOrder="20">
+                        <resource id="Learning_JobManager::job_save" title="Save Job" sortOrder="10" />
+                        <resource id="Learning_JobManager::job_delete" title="Delete Job" sortOrder="20" />
+                    </resource>
+                </resource>
+                <!--</resource>-->
+            </resource>
+        </resources>
+    </acl>
+</config>

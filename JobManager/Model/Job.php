@@ -2,7 +2,14 @@
 
 namespace Learning\JobManager\Model;
 
-class Job
+
+use Magento\Framework\Model\AbstractModel;
+
+class Job extends AbstractModel
 {
 
+    protected function _constructor()
+    {
+        $this->_init();
+    }
 }

@@ -171,12 +171,12 @@
             </settings>
         </column>
 
-<!--        <actionsColumn name="actions" class="Learning\Popup\Ui\Component\Listing\Column\PopupActions">-->
-<!--            <settings>-->
-<!--                <indexField>popup_id</indexField>-->
-<!--                <resizeEnabled>false</resizeEnabled>-->
-<!--                <resizeDefaultWidth>107</resizeDefaultWidth>-->
-<!--            </settings>-->
-<!--        </actionsColumn>-->
+        <actionsColumn name="actions" class="Learning\Popup\Ui\Component\Listing\Column\PopupActions">
+            <settings>
+                <indexField>popup_id</indexField>
+                <resizeEnabled>false</resizeEnabled>
+                <resizeDefaultWidth>107</resizeDefaultWidth>
+            </settings>
+        </actionsColumn>
     </columns>
 </listing>

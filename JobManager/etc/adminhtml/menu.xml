@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+            id="Learning_JobManager::job_head"
+            title="Manage Jobs"
+            module="Learning_JobManager"
+            sortOrder="100"
+            resource="Learning_JobManager::job_head"
+        />
+
+        <add
+            id="Learning_JobManager::department"
+            title="Departments"
+            module="Learning_JobManager"
+            sortOrder="10"
+            parent="Learning_JobManager::job_head"
+            action="jobs/department"
+            resource="Learning_JobManager::job"
+        />
+
+        <add
+            id="Learning_JobManager::job"
+            title="Jobs"
+            module="Learning_JobManager"
+            sortOrder="20"
+            parent="Learning_JobManager::job_head"
+            action="jobs/job"
+            resource="Learning_JobManager::job"
+        />
+    </menu>
+</config>

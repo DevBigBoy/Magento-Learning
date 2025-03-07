@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    This schema file defines the structure of the database tables used by the JobManager module.
+    It's an alternative to using InstallSchema and is more declarative for Magento 2.3 and later.
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Db\Schema/etc/db_schema.xsd">
+
+    <!-- Define the 'learning_department' table -->
+    <table name="learning_department" resource="default" engine="innodb" comment="Department management for jobs module">
+
+        <!-- Department ID: Primary key, auto-incremented -->
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true" comment="Department Id"/>
+
+        <!-- Department Name: Unique and required -->
+        <column xsi:type="varchar" name="name" nullable="false" length="255" comment="Department Name"/>
+
+        <!-- Department Description: Optional field to describe the department -->
+        <column xsi:type="text" name="description" nullable="true" comment="Department Description"/>
+
+        <!-- Primary key constraint for the department table -->
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+
+        <!-- Index for full-text search on the department name and description -->
+        <index referenceId="DEPARTMENT_NAME_DESCRIPTION_FULLTEXT" indexType="fulltext">
+            <column name="name"/>
+            <column name="description"/>
+        </index>
+    </table>
+
+    <!-- Define the 'learning_job' table -->
+    <table name="learning_job" resource="default" engine="innodb" comment="Learning Job management">
+
+        <!-- Job ID: Primary key, auto-incremented -->
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true" comment="Job Id"/>
+
+        <!-- Job Title: Required field for the job title -->
+        <column xsi:type="varchar" name="title" nullable="false" length="255" comment="Job Title"/>
+
+        <!-- Job Type: Type of job (e.g., CDI, CDD) -->
+        <column xsi:type="varchar" name="type" nullable="false" length="255" comment="Job Type (e.g., CDI, CDD)"/>
+
+        <!-- Job Location: Optional field to specify the job's location -->
+        <column xsi:type="varchar" name="location" nullable="true" length="255" comment="Job Location"/>
+
+        <!-- Job Start Date: Mandatory field to specify when the job starts -->
+        <column xsi:type="timestamp" name="date" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Job Start Date"/>
+
+        <!-- Job Status: Whether the job is active (1) or inactive (0) -->
+        <column xsi:type="smallint" name="status" unsigned="false" nullable="false" default="1" comment="Job Status (1=active, 0=inactive)"/>
+
+        <!-- Job Description: Optional field for describing the job -->
+        <column xsi:type="text" name="description" nullable="true" comment="Job Description"/>
+
+        <!-- Department ID: Foreign key linking the job to a department -->
+        <column xsi:type="int" name="department_id" unsigned="true" nullable="false" comment="Department ID (foreign key)"/>
+
+        <!-- Created At: Timestamp for when the job was created -->
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Job Creation Time"/>
+
+        <!-- Updated At: Timestamp for when the job was last updated -->
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Job Modification Time"/>
+
+        <!-- Primary key constraint for the job table -->
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+
+        <!-- Foreign key constraint linking the job to the department table -->
+        <constraint xsi:type="foreign" referenceId="FK_JOB_DEPARTMENT" table="learning_job"
+                    column="department_id" referenceTable="learning_department" referenceColumn="entity_id" onDelete="CASCADE"/>
+
+        <!-- Index for the department_id to speed up lookups -->
+        <index referenceId="IDX_JOB_DEPARTMENT" indexType="btree">
+            <column name="department_id"/>
+        </index>
+
+        <!-- Full-text search index for job-related fields (title, location, type, status) -->
+        <index referenceId="JOB_SEARCH_FULLTEXT" indexType="fulltext">
+            <column name="title"/>
+            <column name="location"/>
+            <column name="type"/>
+        </index>
+    </table>
+
+</schema>

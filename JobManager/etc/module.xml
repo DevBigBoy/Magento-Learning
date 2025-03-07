@@ -1,0 +1,17 @@
+<?xml version="1.0"?> <!-- This is the XML declaration specifying the version of XML. -->
+
+<!-- The <config> tag is the root of the module's configuration file. -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+
+    <!-- The <module> tag is used to define the details of the module. -->
+    <module name="Learning_JobManager">
+
+        <!-- The <sequence> tag defines the order in which modules should be loaded. -->
+        <!-- This is helpful if your module depends on others to be loaded first. -->
+        <sequence>
+            <!-- In this case, we specify that the module depends on "Magento_GraphQl" being loaded first. -->
+            <module name="Magento_GraphQl"/>
+        </sequence>
+    </module>
+</config>

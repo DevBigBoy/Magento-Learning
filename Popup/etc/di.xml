@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="manage_popup_listing_data_source" xsi:type="string">Learning\Popup\Model\ResourceModel\Popup\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Learning\Popup\Model\ResourceModel\Popup\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">learning_popup</argument>
+            <argument name="eventPrefix" xsi:type="string">learning_popup_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">popup_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Learning\Popup\Model\ResourceModel\Popup</argument>
+        </arguments>
+    </type>
+
+</config>

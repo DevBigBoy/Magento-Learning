@@ -11,67 +11,80 @@ class Popup extends AbstractModel implements PopupInterface
 
     protected function _construct()
     {
+        $this->_eventPrefix = 'learning_popup';
+        $this->_eventObject = 'popup';
+        $this->_idFieldName = 'popup_id';
+
         $this->_init(PopupResource::class);
     }
 
-
-    public function getName()
+    public function getPopupId(): int
     {
-        // TODO: Implement getName() method.
+        return $this->getData(self::POPUP_ID);
     }
 
-    public function getContent()
+    public function setPopupId(int $id): PopupInterface
     {
-        // TODO: Implement getContent() method.
+        return $this->setData(self::POPUP_ID, $id);
+    }
+
+    public function getName(): string
+    {
+        return $this->getData(self::NAME);
+    }
+
+    public function setName(string $name): PopupInterface
+    {
+        return $this->setData(self::NAME, $name);
+    }
+
+    public function getContent(): string
+    {
+        return $this->getData(self::CONTENT);
+    }
+
+    public function setContent(string $content): PopupInterface
+    {
+        return $this->setData(self::CONTENT, $content);
+    }
+
+    public function setCreatedAt(string $createdAt): PopupInterface
+    {
+        return $this->setData(self::CREATED_AT, $createdAt);
     }
 
     public function getCreatedAt()
     {
-        // TODO: Implement getCreatedAt() method.
+        return $this->getData(self::CREATED_AT);
     }
 
     public function getUpdatedAt()
     {
-        // TODO: Implement getUpdatedAt() method.
+        return $this->getData(self::UPDATED_AT);
     }
 
-    public function getIsActive()
+    public function setUpdatedAt(string $updatedAt): PopupInterface
     {
-        // TODO: Implement getIsActive() method.
+        return $this->setData(self::UPDATED_AT, $updatedAt);
     }
 
-    public function getTimeOut()
+    public function setIsActive($isActive): PopupInterface
     {
-        // TODO: Implement getTimeOut() method.
+        return $this->setData(self::IS_ACTIVE, $isActive);
     }
 
-    public function setName($name)
+    public function getIsActive(): bool
     {
-        // TODO: Implement setName() method.
+        return $this->getData(self::IS_ACTIVE);
     }
 
-    public function setContent($content)
+    public function getTimeOut(): int
     {
-        // TODO: Implement setContent() method.
+        return $this->getData(self::TIME_OUT);
     }
 
-    public function setCreatedAt($createdAt)
+    public function setTimeOut(int $timeout): PopupInterface
     {
-        // TODO: Implement setCreatedAt() method.
-    }
-
-    public function setUpdatedAt($updatedAt)
-    {
-        // TODO: Implement setUpdatedAt() method.
-    }
-
-    public function setIsActive($isActive)
-    {
-        // TODO: Implement setIsActive() method.
-    }
-
-    public function setTimeOut($timeout)
-    {
-        // TODO: Implement setTimeOut() method.
+        return $this->setData(self::TIME_OUT, $timeout);
     }
 }

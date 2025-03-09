@@ -10,7 +10,7 @@
             module="Learning_Popup"
             sortOrder="0"
             parent="Magento_Backend::content_elements"
-            action="popup"
+            action="manage_popup/popup/index"
             resource="Learning_Popup::popup"/>
     </menu>
 </config>

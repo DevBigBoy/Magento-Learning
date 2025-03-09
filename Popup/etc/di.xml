@@ -3,6 +3,12 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
 
+    <preference for="Learning\Popup\Api\PopupRepositoryInterface"
+                type="Learning\Popup\Service\PopupRepository" />
+
+    <preference for="Learning\Popup\Api\Data\PopupInterface"
+                type="Learning\Popup\Model\Popup" />
+
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">

@@ -68,7 +68,7 @@ class Popup extends AbstractModel implements PopupInterface
         return $this->setData(self::UPDATED_AT, $updatedAt);
     }
 
-    public function setIsActive($isActive): PopupInterface
+    public function setIsActive(int $isActive): PopupInterface
     {
         return $this->setData(self::IS_ACTIVE, $isActive);
     }

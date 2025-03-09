@@ -3,16 +3,22 @@
 namespace Learning\Popup\Api;
 
 use Learning\Popup\Api\Data\PopupInterface;
+use Magento\Framework\Exception\NoSuchEntityException;
 
 interface PopupRepositoryInterface
 {
     public function getList();
 
-    public function save(PopupInterface $popup);
+    public function save(PopupInterface $popup): void;
 
-    public function getById($popupId);
+    /**
+     * @param int $popupId
+     * @return PopupInterface
+     * @throws NoSuchEntityException
+     */
+    public function getById(int $popupId): PopupInterface;
 
-    public function delete(PopupInterface $popup);
+    public function delete(PopupInterface $popup): void;
 
-    public function deleteById($popupId);
+    public function deleteById(PopupInterface $popupId): bool;
 }

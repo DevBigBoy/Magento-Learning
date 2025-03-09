@@ -6,11 +6,14 @@ use Magento\Framework\Data\OptionSourceInterface;
 
 class IsActive implements OptionSourceInterface
 {
+
+    private const ENABLED = 1;
+    private const DISABLED = 0;
     public function toOptionArray()
     {
         return [
-            ['value' => 1, 'label' => __('Enabled')],
-            ['value' => 0, 'label' => __('Disabled')]
+            ['value' => self::ENABLED, 'label' => __('Enabled')],
+            ['value' => self::DISABLED, 'label' => __('Disabled')]
         ];
     }
 }

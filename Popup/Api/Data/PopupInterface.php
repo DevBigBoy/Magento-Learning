@@ -2,7 +2,6 @@
 
 namespace Learning\Popup\Api\Data;
 
-
 interface PopupInterface
 {
     const POPUP_ID = 'popup_id';
@@ -12,6 +11,9 @@ interface PopupInterface
     const UPDATED_AT = 'updated_at';
     const IS_ACTIVE = 'is_active';
     const TIME_OUT = 'time_out';
+
+    const DISABLED = 0;
+    const ENABLED = 1;
 
     /**
      * Get ID
@@ -93,17 +95,17 @@ interface PopupInterface
     /**
      * Set is active
      *
-     * @param bool|int $isActive
+     * @param int $isActive
      * @return PopupInterface
      */
-    public function setIsActive($isActive): PopupInterface;
+    public function setIsActive(int $isActive): PopupInterface;
 
     /**
      * Is active
      *
-     * @return bool|null
+     * @return bool
      */
-    public function getIsActive(): ?bool;
+    public function getIsActive(): bool;
 
     /**
      * Get Time out

@@ -1,6 +1,6 @@
 <?php
 
-namespace Learning\Popup\Controller\Adminhtml\Index;
+namespace Learning\Popup\Controller\Adminhtml\Popup;
 
 
 use Magento\Backend\App\Action;

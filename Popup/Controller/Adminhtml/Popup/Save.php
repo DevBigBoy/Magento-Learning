@@ -19,6 +19,8 @@ use Magento\Framework\Exception\LocalizedException;
 class Save extends Action implements HttpPostActionInterface
 {
 
+    const ADMIN_RESOURCE = 'Learning_Popup::popup';
+
     private PopupInterfaceFactory $popupFactory;
     private PopupRepositoryInterface $popupRepository;
     private DataPersistorInterface $dataPersistor;

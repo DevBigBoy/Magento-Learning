@@ -20,7 +20,7 @@ class Popup extends AbstractModel implements PopupInterface
 
     public function getPopupId(): int
     {
-        return $this->getData(self::POPUP_ID);
+        return (int) $this->getData(self::POPUP_ID);
     }
 
     public function setPopupId(int $id): PopupInterface

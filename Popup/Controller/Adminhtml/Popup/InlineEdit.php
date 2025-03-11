@@ -12,6 +12,9 @@ use Psr\Log\LoggerInterface;
 
 class InlineEdit extends Action
 {
+
+    const ADMIN_RESOURCE = 'Learning_Popup::popup';
+
     private PopupRepository $popupRepository;
     private LoggerInterface $logger;
 

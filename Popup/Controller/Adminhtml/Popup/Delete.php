@@ -13,6 +13,8 @@ use Magento\Ui\Component\MassAction\Filter;
 
 class Delete extends Action
 {
+    const ADMIN_RESOURCE = 'Learning_Popup::popup';
+
     private PopupRepository $popupRepository;
 
     public function __construct(

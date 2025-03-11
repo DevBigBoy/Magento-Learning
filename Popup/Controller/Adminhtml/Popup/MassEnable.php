@@ -13,6 +13,9 @@ use Magento\Ui\Component\MassAction\Filter;
 
 class MassEnable extends Action
 {
+
+    const ADMIN_RESOURCE = 'Learning_Popup::popup';
+
     private Filter $filter;
     private CollectionFactory $collectionFactory;
     private PopupRepository $popupRepository;

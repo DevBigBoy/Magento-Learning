@@ -11,6 +11,9 @@ use Psr\Log\LoggerInterface;
 class NewAction extends Action
 {
 
+    const ADMIN_RESOURCE = 'Learning_Popup::popup';
+
+
     private LoggerInterface $logger;
 
     public function __construct(

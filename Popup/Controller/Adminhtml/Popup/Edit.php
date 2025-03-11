@@ -16,6 +16,9 @@ use Psr\Log\LoggerInterface;
 class Edit extends Action
 {
 
+    const ADMIN_RESOURCE = 'Learning_Popup::popup';
+
+
     private LoggerInterface $logger;
     private PopupRepositoryInterface $popupRepository;
     private DataPersistorInterface $dataPersistor;

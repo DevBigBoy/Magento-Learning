@@ -29,7 +29,7 @@ class Delete extends Action
         $popupId =  (int) $this->getRequest()->getParam('popup_id', 0);
         $result = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
 
-        if (!$result)
+        if (!$popupId)
         {
             $this->messageManager->addErrorMessage(__('This popup no longer exists.'));
             return $result->setPath('manage_popup/popup/index');

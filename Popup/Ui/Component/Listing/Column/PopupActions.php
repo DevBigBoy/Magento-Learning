@@ -10,8 +10,8 @@ use Magento\Ui\Component\Listing\Columns\Column;
 
 class PopupActions extends Column
 {
-    private const URL_PATH_EDIT = 'crocoit_popup/popup/edit';
-    private const URL_PATH_DELETE = 'crocoit_popup/popup/delete';
+    private const URL_PATH_EDIT = 'manage_popup/popup/edit';
+    private const URL_PATH_DELETE = 'manage_popup/popup/delete';
 
     /**
      * @var UrlInterface

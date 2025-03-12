@@ -2,54 +2,70 @@
 
 namespace Learning\Popup\Controller\Adminhtml\Popup;
 
-use Learning\Popup\Api\Data\PopupInterface;
-use Learning\Popup\Model\ResourceModel\Popup\CollectionFactory;
+use Learning\Popup\Model\Popup;
 use Learning\Popup\Service\PopupRepository;
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\Controller\ResultInterface;
-use Magento\Ui\Component\MassAction\Filter;
+use Psr\Log\LoggerInterface;
 
 class InlineEdit extends Action
 {
     private PopupRepository $popupRepository;
+    private LoggerInterface $logger;
 
     public function __construct(
         PopupRepository $popupRepository,
+        LoggerInterface $logger,
         Context $context
     )
     {
         parent::__construct($context);
         $this->popupRepository = $popupRepository;
+        $this->logger = $logger;
     }
 
     public function execute(): ResultInterface
     {
-        $popupId =  (int) $this->getRequest()->getParam('popup_id', 0);
-        $result = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
+        $result = $this->resultFactory->create(ResultFactory::TYPE_JSON);
+        $items =  $this->getRequest()->getParam('items');
 
-        if (!$result)
+        $this->logger->debug('Items received:', $items);
+
+        $messages = [];
+        $error = false;
+
+        if(!count($items))
         {
-            $this->messageManager->addErrorMessage(__('This popup no longer exists.'));
-            return $result->setPath('manage_popup/popup/index');
+            $messages[] = ['message' => __('No items found.')];
+            $error = true;
+        } else {
+                    $this->logger->debug('Items received:',array_keys($items));
+                foreach (array_keys($items) as $popupId) {
+                    try {
+                        /** @var Popup $popup */
+                       $popup =  $this->popupRepository->getById((int)$popupId);
+                       $popup->setData(array_merge($popup->getData(), $items[$popupId]));
+                       $this->popupRepository->save($popup);
+                        $this->logger->info("Popup ID {$popupId} updated successfully.");
+
+                    } catch (\Throwable $exception) {
+                        $messages[] = '[Popup ID: '. $popupId .'] ' . $exception->getMessage();
+                        $error = true;
+
+                        $this->logger->error("Error updating Popup ID {$popupId}: " . $exception->getMessage());
+
+                    }
+                }
+
         }
 
-        try {
-
-            $popup = $this->popupRepository->getById($popupId);
-            if (!$popup->getPopupId()) {
-                $this->messageManager->addWarningMessage(__('The Popup With the Provided Id was not found.'));
-            } else{
-                $this->popupRepository->delete($popup);
-                $this->messageManager->addSuccessMessage(__('The Popup has been deleted.'));
-            }
-
-        }catch (\Throwable $exception) {
-            $this->messageManager->addErrorMessage(
-                __('Something went wrong while trying to deleted the popup.')
-            );
-        }
-        return $result->setPath('manage_popup/popup/index');
+        return $result->setData(
+            [
+                'messages' => $messages,
+                'errors' => $error
+            ]
+        );
     }
 }

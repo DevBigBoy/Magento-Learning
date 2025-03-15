@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+
+    <route url="/V1/my_products/my_order_items" method="GET">
+        <service class="Learning\AccountMyProducts\Api\CustomerPurchasedProductsInterface" method="getList"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+    </route>
+    <route url="/V1/my_products/products" method="GET">
+        <service class="Magento\Catalog\Api\ProductRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+    </route>
+    <route url="/V1/my_products/orders/items/:id" method="GET">
+        <service class="Magento\Sales\Api\OrderItemRepositoryInterface" method="get"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+    </route>
+    <route url="/V1/my_products/orders/items" method="GET">
+        <service class="Magento\Sales\Api\OrderItemRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+    </route>
+    <route url="/V1/my_products/products/:sku/media" method="GET">
+        <service class="Magento\Catalog\Api\ProductAttributeMediaGalleryManagementInterface" method="getList"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+    </route>
+    <route url="/V1/my_products/orders" method="GET">
+        <service class="Magento\Sales\Api\OrderRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+    </route>
+    <route url="/V1/my_products/products/attributes/:attributeCode/options" method="GET">
+        <service class="Magento\Catalog\Api\ProductAttributeOptionManagementInterface" method="getItems"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+    </route>
+
+</routes>

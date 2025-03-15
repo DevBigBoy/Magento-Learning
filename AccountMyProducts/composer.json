@@ -1,0 +1,20 @@
+{
+    "name": "learning/account-my-products",
+    "description": "Description",
+    "require": {
+        "magento/framework": "^102",
+        "magento/module-customer": "*",
+        "magento/module-ui": "*",
+        "magento/module-configurable-product": "*",
+        "magento/module-catalog": "*"
+    },
+    "type": "magento2-module",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Learning\\AccountMyProducts\\": ""
+        }
+    }
+}

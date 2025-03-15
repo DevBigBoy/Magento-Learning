@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <learning_cloudways_api_key>
+            <settings>
+                <api_key />
+                <email />
+                <server />
+                <app_id />
+                <api_endpoint>https://api.cloudways.com/api</api_endpoint>
+            </settings>
+        </learning_cloudways_api_key>
+    </default>
+</config>

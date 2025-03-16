@@ -9,6 +9,9 @@
     <preference for="Learning\Popup\Api\Data\PopupInterface"
                 type="Learning\Popup\Model\Popup" />
 
+    <preference for="Learning\Popup\Api\PopupManagementInterface"
+                type="Learning\Popup\Service\PopupManagement" />
+
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">

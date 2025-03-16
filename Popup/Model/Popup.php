@@ -30,7 +30,7 @@ class Popup extends AbstractModel implements PopupInterface
 
     public function getName(): string
     {
-        return $this->getData(self::NAME);
+        return (string) $this->getData(self::NAME);
     }
 
     public function setName(string $name): PopupInterface
@@ -80,7 +80,7 @@ class Popup extends AbstractModel implements PopupInterface
 
     public function getTimeOut(): int
     {
-        return $this->getData(self::TIME_OUT);
+        return (int) $this->getData(self::TIME_OUT);
     }
 
     public function setTimeOut(int $timeout): PopupInterface

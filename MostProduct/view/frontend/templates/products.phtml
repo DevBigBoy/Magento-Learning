@@ -1,0 +1,33 @@
+<?php
+/** @var \Learning\SellerProducts\Block\ProductList $block */
+$mostViewedProducts = $block->getMostViewedProducts();
+$sellerProducts = $block->getSellerProducts();
+?>
+
+<div class="custom-product-list">
+    <h2>Most Viewed Products</h2>
+    <div class="products">
+        <?php foreach ($mostViewedProducts as $product): ?>
+            <div class="product-item">
+                <a href="<?= $block->getUrl($product->getUrlKey()) ?>">
+                    <img src="<?= $block->getImage($product, 'category_page_list')->getImageUrl(); ?>" />
+                    <h3><?= $product->getName(); ?></h3>
+                    <span><?= $block->getPriceHtml($product); ?></span>
+                </a>
+            </div>
+        <?php endforeach; ?>
+    </div>
+
+    <h2>Best Seller Products</h2>
+    <div class="products">
+        <?php foreach ($sellerProducts as $product): ?>
+            <div class="product-item">
+                <a href="<?= $block->getUrl($product->getUrlKey()) ?>">
+                    <img src="<?= $block->getImage($product, 'category_page_list')->getImageUrl(); ?>" />
+                    <h3><?= $product->getName(); ?></h3>
+                    <span><?= $block->getPriceHtml($product); ?></span>
+                </a>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</div>

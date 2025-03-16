@@ -1,0 +1,20 @@
+<?php
+
+use Learning\Popup\ViewModel\PopupViewModel;
+use Magento\Framework\View\Element\Template;
+
+/** @var Template $block */
+/** @var PopupViewModel $viewModel */
+
+$viewModel = $block->getData('view_model');
+
+$popup = $viewModel->getPopup();
+?>
+
+
+<!--<div data-bind="mageInit: {-->
+<!--        'Learning_Popup/js/popup':{-->
+<!--            'timeout': --><?php //= /* @noEscape */ $popup->getTimeout(); ?><!--,-->
+<!--            'content': '--><?php //= /* @noEscape */ $popup->getName(); ?><!--',-->
+<!--        }}">-->
+<!--</div>-->

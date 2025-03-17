@@ -16,45 +16,33 @@ interface PopupInterface
     const ENABLED = 1;
 
     /**
-     * Get ID
-     *
-     * @return int|null
+     * @return int
      */
-    public function getPopupId(): ?int;
+    public function getPopupId(): int;
 
     /**
-     * Set ID
-     *
      * @param int $id
-     * @return PopupInterface
+     * @return \Learning\Popup\Api\Data\PopupInterface
      */
     public function setPopupId(int $id): PopupInterface;
 
     /**
-     * Get Name
-     *
-     * @return string|null
+     * @return string
      */
-    public function getName(): ?string;
+    public function getName(): string;
 
     /**
-     * Set Name
-     *
      * @param string $name
-     * @return PopupInterface
+     * @return \Learning\Popup\Api\Data\PopupInterface
      */
     public function setName(string $name): PopupInterface;
 
     /**
-     * Get content
-     *
-     * @return string|null
+     * @return string
      */
+    public function getContent(): string;
 
-    public function getContent(): ?string;
     /**
-     * Set content
-     *
      * @param string $content
      * @return PopupInterface
      */
@@ -62,64 +50,46 @@ interface PopupInterface
 
 
     /**
-     * Set creation time
-     *
      * @param string $createdAt
-     * @return PopupInterface
+     * @return \Learning\Popup\Api\Data\PopupInterface
      */
     public function setCreatedAt(string $createdAt): PopupInterface;
 
     /**
-     * Get Created at
-     *
-     * @return string|null
+     * @return string
      */
-
-    public function getCreatedAt();
+    public function getCreatedAt(): string;
 
     /**
-     * Get Updated at
-     *
-     * @return string|null
+     * @return string
      */
-    public function getUpdatedAt();
+    public function getUpdatedAt(): string;
 
     /**
-     * Set update time
-     *
      * @param string $updatedAt
-     * @return PopupInterface
+     * @return \Learning\Popup\Api\Data\PopupInterface
      */
     public function setUpdatedAt(string $updatedAt): PopupInterface;
 
     /**
-     * Set is active
-     *
-     * @param int $isActive
-     * @return PopupInterface
+     * @param bool $isActive
+     * @return \Learning\Popup\Api\Data\PopupInterface
      */
-    public function setIsActive(int $isActive): PopupInterface;
+    public function setIsActive(bool $isActive): PopupInterface;
 
     /**
-     * Is active
-     *
      * @return bool
      */
     public function getIsActive(): bool;
 
     /**
-     * Get Time out
-     *
-     * @return int|null
+     * @return int
      */
-
-    public function getTimeOut(): ?int;
+    public function getTimeOut(): int;
 
     /**
-     * Set Time Out
-     *
      * @param int $timeout
-     * @return PopupInterface
+     * @return \Learning\Popup\Api\Data\PopupInterface
      */
     public function setTimeOut(int $timeout): PopupInterface;
 

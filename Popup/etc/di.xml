@@ -12,6 +12,9 @@
     <preference for="Learning\Popup\Api\PopupManagementInterface"
                 type="Learning\Popup\Service\PopupManagement" />
 
+    <preference for="Learning\Popup\Api\Data\PopupSearchResultsInterface"
+                type="Learning\Popup\Model\PopupSearchResults" />
+
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">

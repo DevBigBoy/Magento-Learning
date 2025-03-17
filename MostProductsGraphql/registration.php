@@ -4,6 +4,6 @@ use Magento\Framework\Component\ComponentRegistrar;
 
 ComponentRegistrar::register(
     ComponentRegistrar::MODULE,
-    'Learning_PopupApi',
+    'Learning_MostProductGraphql',
     __DIR__
 );

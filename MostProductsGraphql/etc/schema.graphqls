@@ -1,0 +1,5 @@
+type Query{
+    getMostSellingProduct(limit: Int): Products!
+    getMostViewedProducts(limit: Int): Products!
+    getMostViewedPerCustomer(limit: Int): Products!
+}

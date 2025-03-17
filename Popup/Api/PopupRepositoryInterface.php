@@ -3,22 +3,40 @@
 namespace Learning\Popup\Api;
 
 use Learning\Popup\Api\Data\PopupInterface;
-use Magento\Framework\Exception\NoSuchEntityException;
 
 interface PopupRepositoryInterface
 {
-    public function getList();
+    /**
+     * @param \Magento\Framework\Api\SearchCriteriaInterface $searchCriteria
+     * @return \Learning\Popup\Api\Data\PopupSearchResultsInterface
+     * @throws \Magento\Framework\Exception\LocalizedException
+     */
+    public function getList(\Magento\Framework\Api\SearchCriteriaInterface $searchCriteria);
 
-    public function save(PopupInterface $popup): void;
+    /**
+     * @param PopupInterface $popup
+     * @return int
+     */
+    public function save(PopupInterface $popup): int;
 
     /**
      * @param int $popupId
-     * @return PopupInterface
-     * @throws NoSuchEntityException
+     * @return \Learning\Popup\Api\Data\PopupInterface
+     * @throws Magento\Framework\Exception\NoSuchEntityException
      */
     public function getById(int $popupId): PopupInterface;
 
+    /**
+     * @param \Learning\Popup\Api\Data\PopupInterface $popup
+     * @return void
+     */
     public function delete(PopupInterface $popup): void;
 
-    public function deleteById(PopupInterface $popupId): bool;
+    /**
+     * @param int $popupId
+     * @return bool
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     * @throws  \Magento\Framework\Exception\LocalizedException
+     */
+    public function deleteById(int $popupId): bool;
 }

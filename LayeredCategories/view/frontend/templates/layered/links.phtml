@@ -1,0 +1,23 @@
+<?php
+/** @var \Learning\LayeredCategories\Block\Template $block */
+
+$categoryId = (int) $this->getRequest()->getParam('id', false);
+$categories = $block->getChildCategories($categoryId);
+?>
+
+<div data-role="collapsible" class="filter-options-item" role="presentation" data-collapsible="true">
+    <div data-role="title" class="filter-options-title" role="tab" aria-selected="false" aria-expanded="false" tabindex="0"><?= __('Categories'. count($categories). $categoryId); ?></div>
+    <div data-role="content" class="filter-options-content" role="tabpanel" aria-hidden="true" style="display: none;">
+<?php if (count($categories) > 0): ?>
+        <ol class="items">
+            <?php foreach ($categories as $child): ?>
+                <li class="item">
+                        <a href="<?= $child->getUrl(); ?>">
+                            <span><?= $child->getName(); ?></span>
+                        </a>
+                </li>
+            <?php endforeach; ?>
+        </ol>
+<?php endif; ?>
+    </div>
+</div>
